@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Pro } from 'react-router-dom';
 import Login from './components/Login';
 import AddFriend from './components/AddFriend';
 
@@ -14,6 +14,8 @@ function App() {
 <Route path="/addFriend">
   <AddFriend />
 </Route>
+
+
 
     </div>
   );

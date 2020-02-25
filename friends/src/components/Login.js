@@ -30,8 +30,8 @@ export default function Login(){
 
         axios.post((URL + 'api/login'), userData)
         .then(response => {
-            console.log(response.data);
-            localStorage.setItem('token', response.data.token)
+            console.log(response.data.payload);
+            localStorage.setItem('token', response.data.payload)
             history.push('/addFriend')
         })
         .catch(error => {
