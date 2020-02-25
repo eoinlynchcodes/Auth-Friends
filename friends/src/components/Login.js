@@ -5,7 +5,7 @@ import './Login.css';
 export default function Login(){
 
     const [ userData, setUserData ] = useState({
-        email: '',
+        username: '',
         password: ''
     });
 
@@ -16,8 +16,14 @@ export default function Login(){
         });
     };
 
-    function handleSubmit(event){
-        debugger
+    const handleSubmit = event => {
+        event.preventDefault();
+        setUserData({
+            username: event.target.username,
+            password: event.target.password
+       })
+       console.log(userData);
+
         axios.post('http://localhost:5000/api/login', userData)
         .then(response => {
             console.log(response.data);
@@ -32,7 +38,7 @@ export default function Login(){
 
     return(
         <div>
-            <form> 
+            <form onSubmit={event => handleSubmit(event)}> 
                 <h1>Hey Friend,</h1>
                 <br></br>
                 <h1>Enter your details...</h1>  
@@ -40,12 +46,12 @@ export default function Login(){
                 <h1>Please(and thank you)!</h1>
                 <br>
                 </br><br></br>
-                <label>Email:</label>
+                <label>Username:</label>
                 <input 
                 type="text"
-                placeholder="Email:"
-                onChange={event=> handleChange(event)}
-                name="email"
+                placeholder="Username:"
+                onChange={event => handleChange(event)}
+                name="username"
                 />
                 <label>Password:</label>
                 <input 
@@ -54,7 +60,7 @@ export default function Login(){
                 onChange={event => handleChange(event)}
                 name="password"
                 /> <br></br>
-                <button onClick={event => handleSubmit(event)}>Login</button>
+                <button type="submit">Login</button>
             </form>
         </div>
     )

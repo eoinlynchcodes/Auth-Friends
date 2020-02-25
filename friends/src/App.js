@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 import Login from './components/Login';
+import AddFriend from './components/AddFriend';
 
 function App() {
   return (
@@ -9,6 +10,10 @@ function App() {
     <Route path="/login">
       <Login/>
     </Route>
+
+<Route>
+  <AddFriend />
+</Route>
 
     </div>
   );
