@@ -11,7 +11,7 @@ function App() {
       <Login/>
     </Route>
 
-<Route>
+<Route path="/addFriend">
   <AddFriend />
 </Route>
 

@@ -1,8 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import './Login.css';
 
 export default function Login(){
+
+    const history = useHistory();
+    const URL = 'http://localhost:5000/';
 
     const [ userData, setUserData ] = useState({
         username: '',
@@ -24,14 +28,17 @@ export default function Login(){
        })
        console.log(userData);
 
-        axios.post('http://localhost:5000/api/login', userData)
+        axios.post((URL + 'api/login'), userData)
         .then(response => {
             console.log(response.data);
+            localStorage.setItem('token', response.data.token)
+            history.push('/addFriend')
         })
         .catch(error => {
             console.log(error);
         })
         console.log(userData);
+
     }
 
 
