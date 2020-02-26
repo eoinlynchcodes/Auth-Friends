@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export default function withAuth(){
+export default function axiosWithAuth(){
 
     const token = localStorage.getItem('token') ?? ''
 

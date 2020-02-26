@@ -32,7 +32,7 @@ export default function Login(){
         .then(response => {
             console.log(response.data.payload);
             localStorage.setItem('token', response.data.payload)
-            history.push('/addFriend')
+            history.push('/friendsList')
         })
         .catch(error => {
             console.log(error);

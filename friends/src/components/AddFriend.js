@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './Login.css';
 import uuid from 'uuid';
+import axiosWithAuth from '../axiosWithAuth/index';
 
 export default function AddFriend(){
     const URL = 'http://localhost:5000';
@@ -27,7 +28,7 @@ export default function AddFriend(){
             age: event.target.age,
             email: event.target.email
         })
-        axios.post('http://localhost:5000/api/friends', friendData)
+        axiosWithAuth().post('http://localhost:5000/api/friends', friendData)
         .then(response => {
             console.log(response);
         })  
